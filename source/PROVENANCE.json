@@ -1,0 +1,24 @@
+{
+  "assignment_slug": "chat-interface-real-ai-api",
+  "official_readme": {
+    "path": "source/OFFICIAL_README.md",
+    "note": "Copia del enunciado en inglés adjunto a esta implementación. No se modificó el texto."
+  },
+  "official_readme_es": {
+    "path": "source/OFFICIAL_README.es.md",
+    "note": "Copia del enunciado en español adjunto a esta implementación. No se modificó el texto."
+  },
+  "signal": {
+    "note": "Tokens y lockups copiados byte a byte desde el paquete SIGNAL de esta implementación. Los hashes se contrastan con MANIFEST.json de ese paquete.",
+    "copied": [
+      "styles/tokens.css",
+      "styles/tokens.json",
+      "styles/motion.css",
+      "styles/motion.json",
+      "public/brand/lockups/signal-horizontal.svg",
+      "public/brand/lockups/signal-stacked.svg"
+    ]
+  },
+  "v0_dev": "No usado.",
+  "groq_account": "No creada en esta implementación."
+}

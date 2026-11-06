@@ -1,0 +1,47 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "purpose": "Enviar mensajes, ver el historial y los tokens de la sesión.",
+      "audience": "Quien prueba el prototipo en el navegador.",
+      "next_action": "Escribir un mensaje y pulsar Enviar mensaje.",
+      "content_source": "Enunciado del proyecto y comportamiento real de /api/chat.",
+      "status": 200,
+      "indexing": "noindex",
+      "states": ["loading-session", "empty", "loading-reply", "success", "error", "cleared"]
+    },
+    {
+      "path": "/privacidad",
+      "purpose": "Explicar localStorage y el reenvío a Groq.",
+      "audience": "Quien quiere saber qué sale del navegador.",
+      "next_action": "Volver al chat o borrar la conversación.",
+      "content_source": "Código de persistencia y del proxy.",
+      "status": 200,
+      "indexing": "noindex",
+      "condition": "Hay texto de la persona y, con clave, un tercero (Groq)."
+    },
+    {
+      "path": "/api/chat",
+      "purpose": "Reenviar el historial a Groq o responder en demostración.",
+      "status": "200 o 4xx/5xx según el caso",
+      "indexing": "noindex"
+    },
+    {
+      "path": "ruta inexistente",
+      "purpose": "Avisar que no hay página y volver al chat.",
+      "status": 404,
+      "indexing": "noindex",
+      "states": ["not-found"]
+    }
+  ],
+  "not_applicable": [
+    {
+      "path": "/gracias",
+      "reason": "El resultado del envío queda en el historial. No hay una conversión aparte."
+    },
+    {
+      "path": "cookies",
+      "reason": "No se escriben cookies ni hay analítica."
+    }
+  ]
+}
