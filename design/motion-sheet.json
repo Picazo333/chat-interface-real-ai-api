@@ -1,0 +1,42 @@
+{
+  "effects": [
+    {
+      "id": "S-STATE",
+      "purpose": "El turno nuevo se asienta en el historial.",
+      "selector": ".message.is-new[data-motion-node]",
+      "trigger": "El mensaje pasa a ser el último del historial.",
+      "duration_ms": 180,
+      "easing": "cubic-bezier(.2, .8, .2, 1)",
+      "max_offset_px": 8,
+      "static_state": "El texto está visible desde el primer frame.",
+      "reduced_state": "Sin transform. Lo anulan prefers-reduced-motion y html[data-motion=reduced].",
+      "cleanup": "La animación CSS termina sola. No hay rAF."
+    },
+    {
+      "id": "S-CONTROL",
+      "purpose": "El botón confirma hover y active sin mover el área de clic.",
+      "selector": ".button",
+      "trigger": "hover, active y focus-visible.",
+      "duration_ms": 120,
+      "easing": "cubic-bezier(.2, .8, .2, 1)",
+      "max_offset_px": 0,
+      "static_state": "Borde de 1 px y texto legible.",
+      "reduced_state": "tokens.css elimina transitions.",
+      "cleanup": "No hay listeners de puntero."
+    }
+  ],
+  "not_applicable": [
+    {
+      "id": "S-HERO",
+      "reason": "No hay hero. La página abre por el título y el formulario."
+    },
+    {
+      "id": "S-POINTER",
+      "reason": "No hay arte principal."
+    },
+    {
+      "id": "S-SECTION",
+      "reason": "La lista de proceso permanece en su estado final, sin reveal."
+    }
+  ]
+}

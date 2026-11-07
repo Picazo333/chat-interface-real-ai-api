@@ -1,0 +1,101 @@
+{
+  "captured_at_cst": "2026-11-06 08:38:18 CST",
+  "criteria": {
+    "R01": {
+      "status": "PASS",
+      "command": "GET https://api.groq.com/openai/v1/models (Bearer $GROQ_API_KEY; key never logged)",
+      "timestamp_cst": "2026-11-06 08:38:18 CST",
+      "http_status": 200,
+      "latency_ms": 112.4,
+      "model_count": 11,
+      "has_qwen_qwen3_8_27b": true,
+      "key_prefix": "gsk_",
+      "key_len": 56,
+      "note": "Cuenta Groq de Miguel verificada por clave gsk_ operativa (HTTP 200). No se creó cuenta nueva."
+    },
+    "R02": {
+      "status": "PASS",
+      "command": "test -f .env.local && medir longitud de GROQ_API_KEY (valor redactado)",
+      "timestamp_cst": "2026-11-06 08:38:18 CST",
+      "env_file": ".env.local",
+      "bytes": 131,
+      "key_set": true,
+      "key_len": 56,
+      "model": "GROQ_MODEL=qwen/qwen3.8-27b",
+      "chat_mode": "CHAT_MODE=live",
+      "gitignore_covers_dotenv": true,
+      "note": "Clave de Miguel guardada en .env.local del clone local. No se imprime ni se committea."
+    },
+    "R03": {
+      "status": "PASS",
+      "command": "POST chat/completions directo + POST /api/chat Next (CHAT_MODE=live)",
+      "timestamp_cst": "2026-11-06 08:38:18 CST",
+      "direct_groq": {
+        "http_status": 200,
+        "latency_ms": 864.8,
+        "model_requested": "qwen/qwen3.8-27b",
+        "model_returned": "qwen/qwen3.8-27b",
+        "usage": {
+          "queue_time": 0.773701038,
+          "prompt_tokens": 42,
+          "prompt_time": 3.9459e-05,
+          "completion_tokens": 12,
+          "completion_time": 0.041669102,
+          "total_tokens": 54,
+          "total_time": 0.041708561
+        },
+        "content_excerpt": "hola desde la prueba live de 004",
+        "headers_sent": [
+          "Authorization: Bearer $GROQ_API_KEY",
+          "Content-Type: application/json"
+        ],
+        "url": "https://api.groq.com/openai/v1/chat/completions"
+      },
+      "via_app": {
+        "http_status": 200,
+        "latency_ms": 152.2,
+        "response_keys": [
+          "message",
+          "metrics",
+          "model",
+          "ok",
+          "source",
+          "usage"
+        ],
+        "ok": true,
+        "mode": null,
+        "model": "qwen/qwen3.8-27b",
+        "usage": {
+          "prompt_tokens": 21,
+          "completion_tokens": 3,
+          "total_tokens": 24
+        },
+        "assistant_excerpt": "LISTO",
+        "raw_redacted": {
+          "ok": true,
+          "source": "groq",
+          "model": "qwen/qwen3.8-27b",
+          "message": {
+            "role": "assistant",
+            "content": "LISTO"
+          },
+          "usage": {
+            "prompt_tokens": 21,
+            "completion_tokens": 3,
+            "total_tokens": 24
+          },
+          "metrics": {
+            "responseTimeMs": 148,
+            "tokensPerSecond": 486.71,
+            "providerCompletionTimeSec": 0.006163835
+          }
+        }
+      },
+      "note": "Fetch real a api.groq.com. Modelo qwen/qwen3.8-27b (sucesor documentado en .env.example; qwen3.6-27b no disponible en esta cuenta)."
+    },
+    "R04": {
+      "status": "HITL_MIGUEL",
+      "note": "v0.dev exige cuenta/acción de Miguel. Fuera de esta tanda Groq."
+    }
+  }
+}
